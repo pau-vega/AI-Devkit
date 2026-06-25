@@ -38,8 +38,12 @@
             "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/no-any.sh"
           },
           {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/no-inline-import-type.sh"
+          },
+          {
             "type": "prompt",
-            "prompt": "Check if the target file is .ts or .tsx. If not, respond with 'approve'. If it is a TypeScript file, validate the proposed code against these rules: (1) No use of 'any' type — use generics, unknown, or overloads, (2) No 'type A = X & Y' for inheritance — use 'interface extends' instead, (3) No enums — use 'as const' objects, (4) No default exports unless required by framework, (5) No inline 'import { type X }' — use top-level 'import type { X }', (6) No 'T | undefined' for optional props — use 'prop?: T'. If all rules pass, respond 'approve'. If any rule is violated, respond 'deny' with an explanation of which rules were broken and how to fix them."
+            "prompt": "Check if the target file is .ts or .tsx. If not, respond with 'approve'. If it is a TypeScript file, validate the proposed code against these rules: (1) No 'type A = X & Y' for inheritance — use 'interface extends' instead, (2) No 'T | undefined' for optional props — use 'prop?: T'. If all rules pass, respond 'approve'. If any rule is violated, respond 'deny' with an explanation of which rules were broken and how to fix them."
           }
         ]
       }

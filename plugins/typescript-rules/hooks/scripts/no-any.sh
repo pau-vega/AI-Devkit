@@ -19,8 +19,13 @@ else
   CONTENT=$(echo "$INPUT" | jq -r '.tool_input.new_string')
 fi
 
-# Match ': any', 'as any', and '<any>' patterns (not words like "company", "many")
-if echo "$CONTENT" | grep -qE ':\s*any([^a-zA-Z0-9_]|$)|as any([^a-zA-Z0-9_]|$)|<any>|<any,'; then
+# Strip line comments so commented-out code and prose don't trigger the rule
+CODE=$(echo "$CONTENT" | sed 's|//.*||')
+
+# Match ': any', 'as any', '=> any', and 'any' in generic-argument or
+# default position (e.g. Record<string, any>, <T = any>) — not words like
+# "company" or "many"
+if echo "$CODE" | grep -qE ':\s*any([^a-zA-Z0-9_]|$)|as any([^a-zA-Z0-9_]|$)|=>\s*any([^a-zA-Z0-9_]|$)|[<,=]\s*any\s*[>,)[]'; then
   echo "Blocked: do not use 'any' — use generics, 'unknown', or function overloads instead" >&2
   exit 2
 fi

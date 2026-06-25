@@ -233,7 +233,7 @@ Exception: frameworks that require default exports (e.g., Next.js pages).
 | Files | kebab-case | `my-component.ts` |
 | Variables & functions | camelCase | `myVariable`, `myFunction()` |
 | Classes, types, interfaces | PascalCase | `MyClass`, `MyInterface` |
-| Constants & enum values | ALL_CAPS | `MAX_COUNT`, `Color.RED` |
+| Constants & `as const` values | ALL_CAPS | `MAX_COUNT`, `"EXTRA_SMALL"` |
 | Type parameters | T-prefixed | `TKey`, `TValue` |
 
 ### JSDoc comments
@@ -250,7 +250,7 @@ const add = (a: number, b: number) => a + b;
 
 ## Dependencies
 
-When installing libraries, always use the package manager CLI (e.g., `pnpm add`, `yarn add`, `npm install`) rather than manually editing `package.json`. This ensures you get the latest version, since training data has a cutoff date.
+When installing libraries, always use the package manager CLI rather than manually editing `package.json`. This ensures you get the latest version, since training data has a cutoff date. Use the package manager the project's lockfile indicates (`pnpm-lock.yaml` → `pnpm add`, `package-lock.json` → `npm install`, `yarn.lock` → `yarn add`).
 
 ```bash
 pnpm add -D @typescript-eslint/eslint-plugin

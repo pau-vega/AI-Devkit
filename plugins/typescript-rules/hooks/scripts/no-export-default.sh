@@ -19,8 +19,10 @@ else
   CONTENT=$(echo "$INPUT" | jq -r '.tool_input.new_string')
 fi
 
-# Allow default exports in framework-required files (Next.js pages, layouts, etc.)
-if echo "$FILE_PATH" | grep -qE '/(page|layout|loading|error|not-found|template|default)\.(ts|tsx)$'; then
+# Allow default exports where frameworks require them: Next.js app-router
+# files, config files (vite/next/vitest/playwright/tailwind/...), and
+# Storybook stories.
+if echo "$FILE_PATH" | grep -qE '/(page|layout|loading|error|not-found|template|default)\.(ts|tsx)$|\.config\.(ts|mts|cts)$|\.stories\.(ts|tsx)$'; then
   exit 0
 fi
 

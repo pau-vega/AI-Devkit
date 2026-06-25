@@ -25,8 +25,8 @@ settings_rule_enabled() {
   frontmatter=$(sed -n '/^---$/,/^---$/{ /^---$/d; p; }' "$file")
 
   local master rule_value
-  master=$(printf '%s\n' "$frontmatter" | grep '^enabled:' | sed 's/enabled: *//; s/^"\(.*\)"$/\1/' || true)
-  rule_value=$(printf '%s\n' "$frontmatter" | grep "^${rule}:" | sed "s/${rule}: *//; s/^\"\(.*\)\"\$/\1/" || true)
+  master=$(printf '%s\n' "$frontmatter" | grep '^enabled:' | sed 's/enabled: *//; s/ *#.*//; s/[[:space:]]*$//; s/^"\(.*\)"$/\1/' || true)
+  rule_value=$(printf '%s\n' "$frontmatter" | grep "^${rule}:" | sed "s/${rule}: *//; s/ *#.*//; s/[[:space:]]*\$//; s/^\"\(.*\)\"\$/\1/" || true)
 
   if [ "$master" = "false" ] || [ "$rule_value" = "false" ]; then
     return 1

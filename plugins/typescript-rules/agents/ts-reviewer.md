@@ -32,7 +32,7 @@ You are a TypeScript code reviewer. Your job is to review TypeScript code for co
 
 2. **Discover files to review:**
    - If a specific path was provided, use Glob to find all `.ts` and `.tsx` files in that path
-   - If no path was provided, run `git diff --name-only HEAD` to find changed files, then filter for `.ts`/`.tsx`
+   - If no path was provided, run `git diff --name-only HEAD` and `git ls-files --others --exclude-standard` to find changed and newly created files, then filter for `.ts`/`.tsx`
    - If there are no uncommitted changes, run `git diff --name-only HEAD~1` to review the last commit
 
 3. **Read each file** using the Read tool

@@ -11,6 +11,12 @@ if ! echo "$COMMAND" | sed 's/&&/\n/g; s/||/\n/g; s/;/\n/g' | grep -qE '^\s*git\
   exit 0
 fi
 
+# Skip projects that have no typecheck script (non-TS repo or different
+# tooling) — otherwise `pnpm typecheck` fails and every commit is blocked.
+PKG="${CLAUDE_PROJECT_DIR:-.}/package.json"
+[ -f "$PKG" ] || exit 0
+jq -e '.scripts.typecheck' "$PKG" >/dev/null 2>&1 || exit 0
+
 # Run typecheck before allowing the commit
 TSC_OUTPUT=$(pnpm typecheck 2>&1)
 TSC_EXIT=$?

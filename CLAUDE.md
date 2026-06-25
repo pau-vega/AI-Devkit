@@ -116,8 +116,8 @@ hooks are documented skip rules — see the README's "Known limitations" section
 
 - Hook scripts read tool input from **stdin** as JSON (`INPUT=$(cat)`) and
   use `jq` to extract fields.
-- Hook scripts output JSON: `{"decision": "block", "reason": "..."}` to
-  block, or exit 0 silently to allow.
+- Hook scripts block by printing a reason to **stderr** and exiting with
+  code 2, or exit 0 silently to allow.
 - Prompt-based hooks (inline `"type": "prompt"` in `hooks.json`) validate
   file content against rules and respond with `approve` or `deny`.
 - `${CLAUDE_PLUGIN_ROOT}` is the variable Claude Code injects in

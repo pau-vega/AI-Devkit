@@ -34,8 +34,8 @@ Autonomous reviewer that triggers when you ask about TypeScript code quality (e.
 
 PreToolUse hooks, Claude Code only — OpenCode does not consume `hooks.json`, and Cursor's hook schema differs:
 
-- **On Bash**: enforce pnpm over npm/yarn, lint before commit, typecheck before commit
-- **On Write/Edit**: block `enum`, `any`, default exports, and direct `package.json` edits; a prompt-based hook validates proposed TypeScript against the full rule set
+- **On Bash**: enforce pnpm over npm/yarn (only in projects with a `pnpm-lock.yaml`), lint before commit, typecheck before commit (each skipped when the project has no matching `package.json` script)
+- **On Write/Edit**: block `enum`, `any`, default exports, inline `import { type X }`, and direct `package.json` edits; a prompt-based hook validates the rules grep can't catch (intersection-type inheritance, `T | undefined` optional props)
 
 ## Configuration
 
@@ -56,17 +56,18 @@ Available keys (every key defaults to `true` when the file or key is absent; onl
 | Key | Hook |
 |-----|------|
 | `enabled` | Master switch for all command hooks below |
-| `enforce_pnpm` | Block `npm install` / `yarn add` |
-| `lint_before_commit` | Run `pnpm lint` before `git commit` |
-| `typecheck_before_commit` | Run `pnpm typecheck` before `git commit` |
+| `enforce_pnpm` | Block `npm`/`yarn` installs in pnpm projects (`pnpm-lock.yaml` present) |
+| `lint_before_commit` | Run `pnpm lint` before `git commit` (skipped if no `lint` script) |
+| `typecheck_before_commit` | Run `pnpm typecheck` before `git commit` (skipped if no `typecheck` script) |
 | `no_package_json_edit` | Block direct `package.json` edits |
 | `no_any` | Block `any` in `.ts`/`.tsx` writes |
 | `no_enum` | Block `enum` declarations |
-| `no_export_default` | Block default exports |
+| `no_export_default` | Block default exports (config files and Storybook stories exempt) |
+| `no_inline_import_type` | Block inline `import { type X }` |
 
 The settings file is read on every hook invocation, so changes take effect immediately — no restart needed. Two caveats:
 
-- The prompt-based validation hook cannot read project files, so it stays active regardless of this file. It overlaps the `no_any` / `no_enum` / `no_export_default` rules, meaning those violations may still be flagged (as model-evaluated denials) when the script rules are off.
+- The prompt-based validation hook cannot read project files, so it stays active regardless of this file. It covers only the intersection-inheritance and optional-prop rules, which no script rule duplicates.
 - Settings are per-developer — add `.claude/*.local.md` to your `.gitignore`.
 
 ## Installation
