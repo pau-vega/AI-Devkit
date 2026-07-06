@@ -1,10 +1,16 @@
 {
   "name": "commit-commands",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Streamline git workflow with /commit, /commit-push-pr, and /clean-gone commands",
   "author": {
     "name": "Anthropic"
   },
   "license": "MIT",
-  "keywords": ["git", "commit", "pull-request", "workflow", "productivity"]
+  "keywords": [
+    "git",
+    "commit",
+    "pull-request",
+    "workflow",
+    "productivity"
+  ]
 }

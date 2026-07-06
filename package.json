@@ -1,6 +1,6 @@
 {
   "name": "devkit-ai",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Install the Devkit-AI plugins (typescript-rules, jsdoc-standards, commit-commands) into Claude Code, Cursor, or OpenCode. No model lock-in: source files are runtime-neutral, and the installer translates per-target.",
   "type": "module",
   "bin": {
