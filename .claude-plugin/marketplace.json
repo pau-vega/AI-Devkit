@@ -4,7 +4,7 @@
   "owner": {
     "name": "Pau Velasco Garrofe"
   },
-  "version": "0.1.4",
+  "version": "0.1.5",
   "plugins": [
     {
       "name": "typescript-rules",
@@ -12,7 +12,7 @@
       "source": "./plugins/typescript-rules",
       "description": "TypeScript coding conventions with automatic validation, review command, and reviewer agent",
       "longDescription": "TypeScript coding conventions with automatic validation, review command, and reviewer agent. Enforces interface extends over &, discriminated unions, no enums, no any, no default exports, and import type usage.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "category": "typescript",
       "icon": "TS",
       "iconClass": "typescript",
@@ -33,7 +33,7 @@
       "source": "./plugins/jsdoc-standards",
       "description": "JSDoc documentation standards with three enforcement levels (Minimal, Standard, Strict), automatic warnings, and on-demand review",
       "longDescription": "JSDoc documentation standards with three enforcement levels (Minimal, Standard, Strict), automatic warnings on missing docs, and on-demand review command.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "category": "documentation",
       "icon": "/**",
       "iconClass": "documentation",
@@ -54,7 +54,7 @@
       "source": "./plugins/commit-commands",
       "description": "Streamline git workflow with /commit, /commit-push-pr, and /clean-gone commands",
       "longDescription": "Streamline your git workflow with commands for committing, pushing, and creating pull requests. Automates common git operations with AI-powered commit message generation that matches your repository's existing style.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "category": "productivity",
       "icon": "Git",
       "iconClass": "git",
@@ -76,7 +76,7 @@
       "source": "./plugins/release-please-monorepo",
       "description": "Set up automated semantic versioning, changelogs, and per-package publishing in a pnpm/Turbo monorepo using googleapis/release-please-action v4",
       "longDescription": "Automated, Conventional-Commits-driven releases for pnpm/Turbo monorepos via googleapis/release-please-action v4. One Release Please PR accumulates version bumps + changelogs per package; merging it tags a release and triggers per-package publish jobs, with independent per-package versions, paths_released gating, GitHub Packages auth, and floating major tags for composite actions.",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "category": "releases",
       "icon": "Rel",
       "iconClass": "releases",

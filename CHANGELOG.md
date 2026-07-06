@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.5](https://github.com/pau-vega/Devkit-AI/compare/devkit-ai-v0.1.4...devkit-ai-v0.1.5) (2026-07-06)
+
+
+### Features
+
+* **hooks:** add per-project settings file support ([19c0223](https://github.com/pau-vega/Devkit-AI/commit/19c02237dec7dd9e7d3629121a198919e8a32aa6))
+* **hooks:** add per-project settings file support ([c06006f](https://github.com/pau-vega/Devkit-AI/commit/c06006f7be22eb85296330d536fe891335efcd40))
+* **marketplace:** add release-please-monorepo plugin ([46e6277](https://github.com/pau-vega/Devkit-AI/commit/46e62779575ff30f446135361aa578c10789d010))
+* **marketplace:** add release-please-monorepo plugin ([e4c10e3](https://github.com/pau-vega/Devkit-AI/commit/e4c10e3a1c87b6cb49444daa94927bb003230778))
+
+
+### Bug Fixes
+
+* **typescript-rules:** close hook gaps and false blocks ([e8ef213](https://github.com/pau-vega/Devkit-AI/commit/e8ef213483dcc75b8c36f0193714fd88d1f67d0c))
+* **typescript-rules:** close hook gaps and false blocks ([d2be3a0](https://github.com/pau-vega/Devkit-AI/commit/d2be3a034b062fe87fc4dccd5e0b806b6c927c2f))
+
 ## [0.1.4](https://github.com/pau-vega/Devkit-AI/compare/devkit-ai-v0.1.3...devkit-ai-v0.1.4) (2026-06-08)
 
 

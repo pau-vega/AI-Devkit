@@ -1,10 +1,15 @@
 {
   "name": "jsdoc-standards",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "JSDoc documentation standards with three enforcement levels (Minimal, Standard, Strict), automatic warnings, and on-demand review",
   "author": {
     "name": "Pau Velasco Garrofe"
   },
   "license": "MIT",
-  "keywords": ["jsdoc", "documentation", "typescript", "code-quality"]
+  "keywords": [
+    "jsdoc",
+    "documentation",
+    "typescript",
+    "code-quality"
+  ]
 }
