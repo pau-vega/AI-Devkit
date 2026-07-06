@@ -313,7 +313,12 @@ generate_cursor_symlinks() {
   (cd "$repo_root/.cursor/skills/commit-commands" && \
    ln -sf ../../../plugins/commit-commands/skills/git-conventions/SKILL.md SKILL.md)
 
-  echo "Created .cursor/skills/ symlinks for typescript-rules, jsdoc-standards, and commit-commands" >&2
+  # release-please-monorepo: symlink from .cursor/skills/release-please-monorepo/ to skills/release-please-monorepo/
+  mkdir -p "$repo_root/.cursor/skills/release-please-monorepo"
+  (cd "$repo_root/.cursor/skills/release-please-monorepo" && \
+   ln -sf ../../../plugins/release-please-monorepo/skills/release-please-monorepo/SKILL.md SKILL.md)
+
+  echo "Created .cursor/skills/ symlinks for typescript-rules, jsdoc-standards, commit-commands, and release-please-monorepo" >&2
 }
 
 # ── Main ─────────────────────────────────────────────────────────────

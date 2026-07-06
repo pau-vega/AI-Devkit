@@ -1,0 +1,10 @@
+{
+  "name": "release-please-monorepo",
+  "version": "0.1.4",
+  "description": "Set up automated semantic versioning, changelogs, and per-package publishing in a pnpm/Turbo monorepo using googleapis/release-please-action v4",
+  "author": {
+    "name": "Pau Velasco Garrofe"
+  },
+  "license": "MIT",
+  "keywords": ["release-please", "semantic-versioning", "changelog", "monorepo", "ci", "publishing"]
+}

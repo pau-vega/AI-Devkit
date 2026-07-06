@@ -15,6 +15,7 @@
     "plugins/typescript-rules/",
     "plugins/jsdoc-standards/",
     "plugins/commit-commands/",
+    "plugins/release-please-monorepo/",
     ".claude-plugin/marketplace.json",
     "README.md",
     "LICENSE"
