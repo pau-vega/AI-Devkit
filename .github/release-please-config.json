@@ -34,6 +34,11 @@
           "type": "json",
           "path": "plugins/commit-commands/.claude-plugin/plugin.json",
           "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "plugins/release-please-monorepo/.claude-plugin/plugin.json",
+          "jsonpath": "$.version"
         }
       ]
     }
